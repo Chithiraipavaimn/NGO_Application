@@ -2,7 +2,7 @@ package ngoapplication;
 
 public interface NGO_Details
 {
-     void getPersonalDetails();
+    void getPersonalDetails();
     String idGeneration();
     default void requirement()
     {
@@ -10,6 +10,6 @@ public interface NGO_Details
     }
     static void end()
     {
-        System.out.println("Thanks for visiting us. Welcome,back.");
+        System.out.println("Thanks for visiting us ....>>>>>>>>>>..... Welcome back.");
     }
 }
