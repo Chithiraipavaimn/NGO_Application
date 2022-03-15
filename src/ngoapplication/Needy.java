@@ -34,6 +34,7 @@ public class Needy implements NGODetails
                 System.out.println("Invalid phone number......... Enter valid phone number.");
                 System.exit(0);
             }
+            input.nextLine();
             System.out.println("Enter current City : ");
             city=input.nextLine();
             System.out.println("Marital Status : ");
@@ -49,7 +50,9 @@ public class Needy implements NGODetails
             System.out.println("Name: "+first_name+" "+last_name);
             System.out.println("Registration No: NGO-N"+needy_ID);
             System.out.println("------------------------------------------------------");
+
         }
+
         public void requirement()
         {
             int option;
@@ -168,7 +171,6 @@ public class Needy implements NGODetails
                     System.out.println("Sorry.  We Need a Valid Reason to help you. Retry with a Valid Reason.");
                     break;
             }
-
         }
         public void display()
         {

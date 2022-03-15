@@ -12,10 +12,9 @@ public class Donor implements NGODetails
     String DB_URL = "jdbc:mysql://localhost/DONORDETAILS";
     final String USER = "root";
     final String PASS = "root";
-    public String first_name,last_name,city,gender,item,office,donor_ID;
+    public String first_name,last_name,city,gender,item,office,donor_ID,mobile_number;
     public double amount;
     int quantity,age;
-    long mobile_number;
     public void getPersonalDetails()
     {
         System.out.println("Enter your First Name : ");
@@ -30,13 +29,13 @@ public class Donor implements NGODetails
         String occupation=input.nextLine();
         input.nextLine();
         System.out.println("Enter Phone Number : ");
-        mobile_number=input.nextLong();
-        input.nextLine();
-        if(mobile_number!=10)
+        mobile_number=input.nextLine();
+        if(mobile_number.length()!=10)
         {
             System.out.println("Invalid Mobile Number....Please enter a valid mobile number");
             System.exit(0);
         }
+        input.nextLine();
         System.out.println("Enter current City : ");
         city=input.nextLine();
         System.out.println("Purpose of Donating : ");
@@ -78,8 +77,8 @@ public class Donor implements NGODetails
                 }
                 while (ch == 'y');
                 System.out.println("Approximate Date of sending Goods (DD/MM/YYYY) : ");
-                System.out.println("We request you to donate the goods to our nearest hub "+office);
                 date = input.next();
+                System.out.println("We request you to donate the goods to our nearest hub "+office);
                 break;
 
             case 2:

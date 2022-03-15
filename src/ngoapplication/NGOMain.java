@@ -6,7 +6,7 @@ public class NGOMain
     {
         Scanner s=new Scanner(System.in);
         int category;
-        System.out.println("\t\t\t HEARTY WELCOME TO OUR WEBSITE ");
+        System.out.println("\t\t HEARTY WELCOME TO OUR WEBSITE ");
         System.out.println("\t\t MAY I KNOW HOW MAY WE HELP YOU ");
         System.out.println("*************** CATEGORIES *************");
         System.out.println("\t (1) VOLUNTEER \n\t (2) DONOR \n\t (3) NEEDY PEOPLE");

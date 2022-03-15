@@ -8,7 +8,7 @@ public class VolunteerTable
     {
         String DB_URL = "jdbc:mysql://localhost/";
         final String USER = "root";
-        final String PASS = "Heidi@#08zx$";
+        final String PASS = "root";
         try {
             Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);
             Statement statement = conn.createStatement();
