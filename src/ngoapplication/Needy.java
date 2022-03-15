@@ -1,7 +1,7 @@
 package ngoapplication;
 import java.util.*;
 
-public class Needy
+public class Needy implements NGODetails
 {
         Scanner input=new Scanner(System.in);
         public String first_name,last_name,city,needy_ID;
