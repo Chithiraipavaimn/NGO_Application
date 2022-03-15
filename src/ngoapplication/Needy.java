@@ -105,7 +105,7 @@ public class Needy implements NGODetails
         {
             System.out.println("----------------- OPTIONS --------------------");
             System.out.println("\n1)Bank \n2)UPI \n3)Cash");
-            System.out.println("--------------------------------------------");
+            System.out.println("-----------------------------------------------");
             System.out.println("Enter your Option : ");
             int option1=input.nextInt();
             switch (option1) {
