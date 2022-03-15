@@ -1,30 +1,36 @@
 package ngoapplication;
-//import location.Location;
+import com.location.Location;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.*;
 public class Donor implements NGODetails
 {
     Scanner input=new Scanner(System.in);
-    public String first_Name,last_Name,city;
+    String DB_URL = "jdbc:mysql://localhost/";
+    final String USER = "root";
+    final String PASS = "root";
+    public String first_name,last_name,city,gender,item,office,donor_ID;
     public double amount;
-    String item;
-    String donor_ID;
-    int quantity;
-    String office;
+    int quantity,age;
+    long mobile_number;
     public void getPersonalDetails()
     {
         System.out.println("Enter your First Name : ");
-        first_Name=input.nextLine();
+        first_name=input.nextLine();
         System.out.println("Enter your Last Name : ");
-        last_Name=input.nextLine();
+        last_name=input.nextLine();
         System.out.println("Enter your Age : ");
-        int age=input.nextInt();
+        age=input.nextInt();
         System.out.println("Enter your Gender : ");
-        String gender=input.next();
+        gender=input.next();
         System.out.println("Enter your Occupation : ");
         String occupation=input.nextLine();
         input.nextLine();
-        System.out.println("Enter Contact Number : ");
-        long mobile_number=input.nextLong();
+        System.out.println("Enter Phone Number : ");
+        mobile_number=input.nextLong();
         input.nextLine();
         if(mobile_number!=10)
         {
@@ -36,12 +42,15 @@ public class Donor implements NGODetails
         System.out.println("Purpose of Donating : ");
         String purpose=input.nextLine();
     }
-    public String idGeneration()
+    public void idGeneration()
     {
         Random r=new Random();
         int rn=r.nextInt(1000000);
         donor_ID=Integer.toString(rn);
-        return donor_ID;
+        System.out.println("----------YOU HAVE REGISTERED SUCCESSFULLY-----------");
+        System.out.println("\t Name\t : "+first_name+" "+last_name);
+        System.out.println("\t Register Number : NGO-D"+donor_ID);
+        System.out.println("-----------------------------------------------------");
     }
     public void requirement()
     {
@@ -68,7 +77,7 @@ public class Donor implements NGODetails
                 }
                 while (ch == 'y');
 
-                //office = Location.findNearestHub(city);
+                office = Location.findNearestHub(city);
 
                 //calculate location
 
@@ -93,7 +102,7 @@ public class Donor implements NGODetails
                 while (ch == 'y');
 
                 //calculate location
-                //office = Location.findNearestHub(city);
+                office = Location.findNearestHub(city);
                 System.out.println("We request you to donate the cash to the nearest hub "+office);
 
                 System.out.println("Approximate Date of sending Goods (DD/MM/YYYY) : ");
@@ -129,7 +138,7 @@ public class Donor implements NGODetails
                     System.out.println("\tngohelper@okaxis");
                     break;
                 case 3:
-                    //office = Location.findNearestHub(city);
+                    office = Location.findNearestHub(city);
                     System.out.println("We request you to donate the cash to the nearest hub "+office);
                     break;
                 default:
@@ -141,9 +150,15 @@ public class Donor implements NGODetails
         }
         public void display()
         {
-            System.out.println("----------YOU HAVE REGISTERED SUCCESSFULLY-----------");
-            System.out.println("\t Name\t : "+first_Name+" "+last_Name);
-            System.out.println("\t Register Number : NGO-D"+donor_ID);
-            System.out.println("-----------------------------------------------------");
+            try
+            {
+                Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);
+                Statement statement = conn.createStatement();
+                String sql = "Insert into DonorTable(" + donor_ID+",\" " +first_name +" ,\" "+last_name + ",\" "+age+",\" "+gender+", \" "+mobile_number+",\" "+city+", \""+item+",\""+amount+",\" "+office+")";
+                statement.executeUpdate(sql);
+                System.out.println("Thank You!");
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
 }
