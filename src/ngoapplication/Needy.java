@@ -1,4 +1,5 @@
 package ngoapplication;
+import com.location.Location;
 import java.sql.*;
 import java.util.*;
 

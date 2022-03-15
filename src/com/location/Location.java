@@ -1,4 +1,4 @@
- package com.location;
+package com.location;
 import java.util.*;
 
  public class Location
