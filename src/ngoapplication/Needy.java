@@ -1,4 +1,5 @@
 package ngoapplication;
+import java.sql.SQLOutput;
 import java.util.*;
 
 public class Needy implements NGODetails
@@ -25,7 +26,7 @@ public class Needy implements NGODetails
             String mobile_number=input.next();
             if(mobile_number.length()!=10)
             {
-                System.out.println("Invalid phone number. Enter valid phone number.");
+                System.out.println("Invalid phone number......... Enter valid phone number.");
                 System.exit(0);
             }
             System.out.println("Enter current City : ");
@@ -42,14 +43,18 @@ public class Needy implements NGODetails
         }
         public void display()
         {
-            System.out.println("********You have successfully Registered*********");
+            System.out.println("------------YOU HAVE REGISTERED SUCCESSFULLY----------");
             System.out.println("Name: "+first_name+" "+last_name);
             System.out.println("Registration No: NGO-N"+needy_ID);
+            System.out.println("------------------------------------------------------");
         }
         public void requirement()
         {
             int option;
-            System.out.println("1) Goods \n2) Money \n3) Goods and Money \nEnter your option : ");
+            System.out.println("-----------OPTIONS-----------");
+            System.out.println("\t (1) GOODS \n\t (2) MONEY \n\t (3) GOODS AND MONEY");
+            System.out.println("-----------------------------");
+            System.out.println("Enter your choice : ");
             option = input.nextInt();
             input.nextLine();
             String date;
@@ -98,11 +103,14 @@ public class Needy implements NGODetails
         }
         public void modeOfTransaction()
         {
-            System.out.println("1)Bank \n2)UPI \n3)Cash \nEnter your Option :");
+            System.out.println("----------------- OPTIONS --------------------");
+            System.out.println("\n1)Bank \n2)UPI \n3)Cash");
+            System.out.println("--------------------------------------------");
+            System.out.println("Enter your Option : ");
             int option1=input.nextInt();
             switch (option1) {
                 case 1 :
-                    System.out.println("****************Bank Details************");
+                    System.out.println("******* Your Bank Details *********");
                     System.out.println("Bank Name : ");
                     String bank_Name = input.nextLine();
                     input.nextLine();
@@ -119,6 +127,7 @@ public class Needy implements NGODetails
                     String bank_city = input.nextLine();
                     break;
                 case 2 :
+                    System.out.println("****** UPI ID *******");
                     System.out.println("Enter your upi_id no : ");
                     String upi_id = input.nextLine();
                     break;
@@ -126,13 +135,15 @@ public class Needy implements NGODetails
                     System.out.println("We request you to collect the cash from our nearest hub " + office);
                     break;
                 default:
-                    System.out.println("Enter Valid Option");
+                    System.out.println("Invalid Option >>>>>> Please Enter valid option");
                     System.exit(0);
             }
         }
         public void amountNeeded()
         {
+            System.out.println("----------------- REASONS --------------------");
             System.out.println("* Education\n* Medical\n* Women Empowerment\n* Unemployed)");
+            System.out.println("--------------------------------------------");
             System.out.println("Enter the Reason : ");
             String reason=input.nextLine();
             String convert_reason=reason.toLowerCase();
