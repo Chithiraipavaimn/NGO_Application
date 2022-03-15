@@ -138,7 +138,7 @@ public class Donor implements NGODetails
         {
             System.out.println("----------YOU HAVE REGISTERED SUCCESSFULLY-----------");
             System.out.println("\t Name\t : "+first_Name+" "+last_Name);
-            System.out.println("\t Register Number :"+donor_ID);
+            System.out.println("\t Register Number : NGO-D"+donor_ID);
             System.out.println("-----------------------------------------------------");
         }
 }
