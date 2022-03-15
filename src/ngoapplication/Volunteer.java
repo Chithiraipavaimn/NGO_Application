@@ -36,8 +36,7 @@ public class Volunteer implements NGODetails
         }
         System.out.println("Enter your City : ");
         city = input.nextLine();
-        input.nextLine();
-        System.out.println("1-->Weekdays \n 2-->Weekend. \n Enter your Availability :");
+        System.out.println("1-->Weekdays \n2-->Weekend. \n Enter your Availability :");
         int choice = input.nextInt();
         switch (choice) {
             case 1:
