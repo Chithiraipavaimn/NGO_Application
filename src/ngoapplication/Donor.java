@@ -41,6 +41,7 @@ public class Donor implements NGODetails
         city=input.nextLine();
         System.out.println("Purpose of Donating : ");
         String purpose=input.nextLine();
+        office = Location.findNearestHub(city);
     }
     public void idGeneration()
     {
@@ -76,12 +77,8 @@ public class Donor implements NGODetails
                     input.nextLine();
                 }
                 while (ch == 'y');
-
-                office = Location.findNearestHub(city);
-
-                //calculate location
-
                 System.out.println("Approximate Date of sending Goods (DD/MM/YYYY) : ");
+                System.out.println("We request you to donate the goods to our nearest hub "+office);
                 date = input.next();
                 break;
 
@@ -100,14 +97,9 @@ public class Donor implements NGODetails
                     ch = input.next().charAt(0);
                 }
                 while (ch == 'y');
-
-                //calculate location
-                office = Location.findNearestHub(city);
-                System.out.println("We request you to donate the cash to the nearest hub "+office);
-
                 System.out.println("Approximate Date of sending Goods (DD/MM/YYYY) : ");
+                System.out.println("We request you to donate the cash to the nearest hub "+office);
                 date = input.next();
-
                 System.out.println("Enter the amount : ");
                 amount = input.nextDouble();
                 modeOfTransaction();
@@ -138,7 +130,6 @@ public class Donor implements NGODetails
                     System.out.println("\tngohelper@okaxis");
                     break;
                 case 3:
-                    office = Location.findNearestHub(city);
                     System.out.println("We request you to donate the cash to the nearest hub "+office);
                     break;
                 default:

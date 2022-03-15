@@ -38,6 +38,7 @@ public class Needy implements NGODetails
             city=input.nextLine();
             System.out.println("Marital Status : ");
             String status=input.nextLine();
+            office = Location.findNearestHub(city);
         }
         public void idGeneration()
         {
