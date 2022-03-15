@@ -1,14 +1,18 @@
 package ngoapplication;
-import java.sql.SQLOutput;
+import java.sql.*;
 import java.util.*;
 
 public class Needy implements NGODetails
 {
         Scanner input=new Scanner(System.in);
+        String DB_URL = "jdbc:mysql://localhost/NEEDYDETAILS";
+        final String USER = "root";
+        final String PASS = "root";
         public String first_name,last_name,city,needy_ID;
         public double amount;
-        String item,office;
-        int quantity;
+        String item,office,mobile_number,gender,occupation,bank_Name,acc_name,ifsc,branch,upi_id;
+        int quantity,age;
+        long acc_no;
         public void getPersonalDetails()
         {
             System.out.println("Enter your First Name : ");
@@ -16,14 +20,14 @@ public class Needy implements NGODetails
             System.out.println("Enter your Last Name : ");
             last_name=input.nextLine();
             System.out.println("Enter your Age : ");
-            int age=input.nextInt();
+            age=input.nextInt();
             System.out.println("Enter your Gender : ");
-            String gender=input.next();
+            gender=input.next();
             System.out.println("Enter your Occupation : ");
-            String occupation=input.nextLine();
+            occupation=input.nextLine();
             input.nextLine();
             System.out.println("Enter Phone Number : ");
-            String mobile_number=input.next();
+            mobile_number=input.next();
             if(mobile_number.length()!=10)
             {
                 System.out.println("Invalid phone number......... Enter valid phone number.");
@@ -34,15 +38,11 @@ public class Needy implements NGODetails
             System.out.println("Marital Status : ");
             String status=input.nextLine();
         }
-        public String idGeneration()
+        public void idGeneration()
         {
             Random r=new Random();
             int rn=r.nextInt(1000000);
             needy_ID=Integer.toString(rn);
-            return needy_ID;
-        }
-        public void display()
-        {
             System.out.println("------------YOU HAVE REGISTERED SUCCESSFULLY----------");
             System.out.println("Name: "+first_name+" "+last_name);
             System.out.println("Registration No: NGO-N"+needy_ID);
@@ -108,28 +108,29 @@ public class Needy implements NGODetails
             System.out.println("-----------------------------------------------");
             System.out.println("Enter your Option : ");
             int option1=input.nextInt();
-            switch (option1) {
+            switch (option1)
+            {
                 case 1 :
                     System.out.println("******* Your Bank Details *********");
                     System.out.println("Bank Name : ");
-                    String bank_Name = input.nextLine();
+                    bank_Name = input.nextLine();
                     input.nextLine();
                     System.out.println("Account Number : ");
-                    long acc_no = input.nextLong();
+                    acc_no = input.nextLong();
                     System.out.println("Account Holder Name : ");
-                    String acc_name = input.nextLine();
+                    acc_name = input.nextLine();
                     input.nextLine();
                     System.out.println("IFSC Code : ");
-                    String ifsc = input.nextLine();
+                    ifsc = input.nextLine();
                     System.out.println("Branch: ");
-                    String branch = input.nextLine();
+                    branch = input.nextLine();
                     System.out.println("City : ");
                     String bank_city = input.nextLine();
                     break;
                 case 2 :
                     System.out.println("****** UPI ID *******");
                     System.out.println("Enter your upi_id no : ");
-                    String upi_id = input.nextLine();
+                    upi_id = input.nextLine();
                     break;
                 case 3 :
                     System.out.println("We request you to collect the cash from our nearest hub " + office);
@@ -164,6 +165,20 @@ public class Needy implements NGODetails
                 default :
                     System.out.println("Sorry.  We Need a Valid Reason to help you. Retry with a Valid Reason.");
                     break;
+            }
+
+        }
+        public void display()
+        {
+            try
+            {
+                Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);
+                Statement statement = conn.createStatement();
+                String sql = "Insert into NeedyTable(" + needy_ID+",\" " +first_name +" ,\" "+last_name + ",\" "+age+",\" "+gender+", \" "+occupation+",\""+mobile_number+",\" "+city+",\" "+item+",\" "+amount+",\" "+acc_name+",\" "+acc_no+",\" "+ifsc+",\" "+branch+",\" "+bank_Name+",\" "+upi_id+",\" "+office+")";
+                statement.executeUpdate(sql);
+                System.out.println("Thank You!");
+            } catch (SQLException e) {
+                e.printStackTrace();
             }
         }
 }
