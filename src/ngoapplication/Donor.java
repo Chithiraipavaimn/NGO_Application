@@ -120,18 +120,23 @@ public class Donor implements NGODetails
             {
                 case 1:
                     System.out.println("******* Our Bank Details *********");
-                    System.out.println("Bank Name: NGO\nAccount Number: 1786000000489685");
-                    System.out.println("Account Holder Name: Helper\nIFSC Code: NGOB0001786");
-                    System.out.println("Branch: Sriram\nCity:Chennai");
+                    System.out.println("\tBank Name: NGO\n\tAccount Number: 1786000000489685");
+                    System.out.println("\tAccount Holder Name: Helper\n\tIFSC Code: NGOB0001786");
+                    System.out.println("\tBranch: Sriram\n\tCity:Chennai");
                     break;
                 case 2:
                     System.out.println("****** UPI ID *******");
-                    System.out.println("ngohelper@okaxis");
+                    System.out.println("\tngohelper@okaxis");
                     break;
                 case 3:
                     //office = Location.findNearestHub(city);
                     System.out.println("We request you to donate the cash to the nearest hub "+office);
                     break;
+                default:
+                    System.out.println("Invalid Option >>>>>> Please Enter valid option");
+                    System.exit(0);
+                    break;
+
             }
         }
         public void display()
