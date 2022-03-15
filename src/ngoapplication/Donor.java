@@ -112,7 +112,7 @@ public class Donor implements NGODetails
         public void modeOfTransaction()
         {
             System.out.println("----------------- OPTIONS --------------------");
-            System.out.println("\n1)Bank \n2)UPI \n3)Cash");
+            System.out.println("\t (1) BANK \n\t (2) UPI \n\t (3) CASH");
             System.out.println("--------------------------------------------");
             System.out.println("Enter your Option : ");
             int option1=input.nextInt();
