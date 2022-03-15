@@ -2,8 +2,8 @@ package ngoapplication;
 
 public interface NGODetails
 {
-     void getPersonalDetails();
-    String idGeneration();
+    void getPersonalDetails();
+    void idGeneration();
     void display();
     default void requirement()
     {
