@@ -29,6 +29,7 @@ public class Needy implements NGODetails
             input.nextLine();
             System.out.println("Enter Phone Number : ");
             mobile_number=input.next();
+            input.nextLine();
             if(mobile_number.length()!=10)
             {
                 System.out.println("Invalid phone number......... Enter valid phone number.");
@@ -149,10 +150,11 @@ public class Needy implements NGODetails
             System.out.println("--------------------------------------------");
             System.out.println("Enter the Reason : ");
             String reason=input.nextLine();
+            input.nextLine();
             String convert_reason=reason.toLowerCase();
             switch (convert_reason)
             {
-                case "education":
+                case "education" :
                     amount = 25000;
                     break;
                 case "medical" :

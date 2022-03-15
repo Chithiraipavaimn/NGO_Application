@@ -6,7 +6,7 @@ public class Volunteer implements NGODetails
 {
     static final String DB_URL = "jdbc:mysql://localhost/VOLUNTEERDETAILS";
     static final String USER = "root";
-    static final String PASS = "Heidi@#08zx$";
+    static final String PASS = "root";
     String first_name,last_name,city,ph_number,availability,office,gender;
     String volunteer_Id="";
     int age;
@@ -75,8 +75,6 @@ public class Volunteer implements NGODetails
             }
         }
         volunteer_Id=volunteer_Id+ph_number.charAt(10-1);
-        int N=ph_number.length()-ph_number.charAt(0);
-        volunteer_Id=volunteer_Id+ph_number.charAt(N);
         System.out.println("----------YOU HAVE REGISTERED SUCCESSFULLY-----------");
         System.out.println("\t Name\t : "+first_name+" "+last_name);
         System.out.println("\t Register Number : NGO-V"+volunteer_Id);

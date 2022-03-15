@@ -4,12 +4,13 @@ import java.sql.Statement;
 import java.sql.SQLException;
 public class VolunteerTable
 {
-    public static void main(String[] args)
+    public static void main(String[] args) throws Exception
     {
         String DB_URL = "jdbc:mysql://localhost/";
         final String USER = "root";
-        final String PASS = "Heidi@#08zx$";
+        final String PASS = "root";
         try {
+            Class.forName("com.mysql.jdbc.Driver");
             Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);
             Statement statement = conn.createStatement();
             String sql = "CREATE DATABASE VOLUNTEERDETAILS";
