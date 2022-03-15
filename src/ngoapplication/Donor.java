@@ -9,7 +9,7 @@ import java.util.*;
 public class Donor implements NGODetails
 {
     Scanner input=new Scanner(System.in);
-    String DB_URL = "jdbc:mysql://localhost/";
+    String DB_URL = "jdbc:mysql://localhost/DONORDETAILS";
     final String USER = "root";
     final String PASS = "root";
     public String first_name,last_name,city,gender,item,office,donor_ID;
