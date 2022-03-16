@@ -80,6 +80,7 @@ public class Needy implements NGODetails
                     break;
 
                 case 2:
+                    input.nextLine();
                     amountNeeded();
                     modeOfTransaction();
                     break;
@@ -94,6 +95,7 @@ public class Needy implements NGODetails
                     }
                     while (ch == 'y');
                     System.out.println("We request you to collect the goods from our nearest hub "+office);
+                    input.nextLine();
                     amountNeeded();
                     modeOfTransaction();
                     break;
