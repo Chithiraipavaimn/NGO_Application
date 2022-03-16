@@ -49,7 +49,7 @@ public class Donor implements NGODetails
         int rn=r.nextInt(1000000);
         donor_ID=Integer.toString(rn);
         System.out.println("----------YOU HAVE REGISTERED SUCCESSFULLY-----------");
-        System.out.println("\t Name\t : "+first_name+" "+last_name);
+        System.out.println("\t Name\t \t\t : "+first_name+" "+last_name);
         System.out.println("\t Register Number : NGO-D"+donor_ID);
         System.out.println("-----------------------------------------------------");
     }
