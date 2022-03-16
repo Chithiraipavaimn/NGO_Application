@@ -97,8 +97,8 @@ public class Donor implements NGODetails
                 }
                 while (ch == 'y');
                 System.out.println("Approximate Date of sending Goods (DD/MM/YYYY) : ");
-                System.out.println("We request you to donate the cash to the nearest hub "+office);
                 date = input.next();
+                System.out.println("We request you to donate the cash to the nearest hub "+office);
                 System.out.println("Enter the amount : ");
                 amount = input.nextDouble();
                 modeOfTransaction();

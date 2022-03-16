@@ -1,13 +1,12 @@
 package ngoapplication;
 import java.sql.*;
 import java.util.Scanner;
-import com.location.Location;
 
 public class Volunteer implements NGODetails
 {
     static final String DB_URL = "jdbc:mysql://localhost/VOLUNTEERDETAILS";
     static final String USER = "root";
-    static final String PASS = "root";
+    static final String PASS = "Heidi@#08zx$";
     String first_name,last_name,city,ph_number,availability,office,gender;
     String volunteer_Id="";
     int age;
@@ -37,9 +36,7 @@ public class Volunteer implements NGODetails
         }
         System.out.println("Enter your City : ");
         city = input.nextLine();
-        office =Location.findNearestHub(city);
-        input.nextLine();
-        System.out.println("1-->Weekdays \n 2-->Weekend. \n Enter your Availability :");
+        System.out.println("1-->Weekdays \n2-->Weekend. \nEnter your Availability :");
         int choice = input.nextInt();
         switch (choice) {
             case 1:
@@ -77,8 +74,6 @@ public class Volunteer implements NGODetails
             }
         }
         volunteer_Id=volunteer_Id+ph_number.charAt(10-1);
-        int N=ph_number.length()-ph_number.charAt(0);
-        volunteer_Id=volunteer_Id+ph_number.charAt(N);
         System.out.println("----------YOU HAVE REGISTERED SUCCESSFULLY-----------");
         System.out.println("\t Name\t : "+first_name+" "+last_name);
         System.out.println("\t Register Number : NGO-V"+volunteer_Id);
