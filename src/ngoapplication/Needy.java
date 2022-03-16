@@ -29,6 +29,7 @@ public class Needy implements NGODetails
             input.nextLine();
             System.out.println("Enter Phone Number : ");
             mobile_number=input.next();
+            input.nextLine();
             if(mobile_number.length()!=10)
             {
                 System.out.println("Invalid phone number......... Enter valid phone number.");
@@ -63,10 +64,10 @@ public class Needy implements NGODetails
             option = input.nextInt();
             input.nextLine();
             String date;
+            char ch;
             switch (option)
             {
                 case 1:
-                    char ch;
                     do
                     {
                         System.out.println("Enter the Item : ");
@@ -82,6 +83,7 @@ public class Needy implements NGODetails
                     break;
 
                 case 2:
+                    input.nextLine();
                     amountNeeded();
                     modeOfTransaction();
                     break;
@@ -96,14 +98,13 @@ public class Needy implements NGODetails
                     }
                     while (ch == 'y');
                     System.out.println("We request you to collect the goods from our nearest hub "+office);
-
+                    input.nextLine();
                     amountNeeded();
                     modeOfTransaction();
                     break;
                 default:
                     System.out.println("Invalid Option >>>>>> Please Enter valid option");
                     System.exit(0);
-                    break;
             }
         }
         public void modeOfTransaction()
@@ -136,6 +137,7 @@ public class Needy implements NGODetails
                     System.out.println("****** UPI ID *******");
                     System.out.println("Enter your upi_id no : ");
                     upi_id = input.nextLine();
+                    input.nextLine();
                     break;
                 case 3 :
                     System.out.println("We request you to collect the cash from our nearest hub " + office);
@@ -148,10 +150,11 @@ public class Needy implements NGODetails
         public void amountNeeded()
         {
             System.out.println("----------------- REASONS --------------------");
-            System.out.println("* Education\n* Medical\n* Women Empowerment\n* Unemployed)");
+            System.out.println("* Education\n* Medical\n* Women Empowerment\n* Unemployed");
             System.out.println("--------------------------------------------");
             System.out.println("Enter the Reason : ");
             String reason=input.nextLine();
+            input.nextLine();
             String convert_reason=reason.toLowerCase();
             switch (convert_reason)
             {
@@ -169,7 +172,7 @@ public class Needy implements NGODetails
                     break;
                 default :
                     System.out.println("Sorry.  We Need a Valid Reason to help you. Retry with a Valid Reason.");
-                    break;
+                    System.exit(0);
             }
         }
         public void display()
