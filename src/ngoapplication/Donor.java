@@ -65,45 +65,32 @@ public class Donor implements NGODetails
         String date;
         switch (option) {
             case 1:
-                char ch;
-                do
-                {
                     System.out.println("Enter the Item : ");
                     item = input.nextLine();
                     System.out.println("Enter the Quantity : ");
                     quantity = input.nextInt();
-                    System.out.println("Do you want to add any other item (Y/N) :");
-                    ch = input.next().charAt(0);
                     input.nextLine();
-                }
-                while (ch == 'y');
-                System.out.println("Approximate Date of sending Goods (DD/MM/YYYY) : ");
-                date = input.next();
-                System.out.println("We request you to donate the goods to our nearest hub "+office);
-                break;
-
+                    System.out.println("Approximate Date of sending Goods (DD/MM/YYYY) : ");
+                    date = input.next();
+                    System.out.println("We request you to donate the goods to our nearest hub "+office);
+                    break;
             case 2:
                 System.out.println("Enter the amount : ");
                 amount = input.nextDouble();
                 modeOfTransaction();
                 break;
             case 3:
-                do {
                     System.out.println("Enter the Item : ");
                     item = input.nextLine();
                     System.out.println("Enter the Quantity : ");
                     quantity = input.nextInt();
-                    System.out.println("Do you want to add any other item (Y/N) :");
-                    ch = input.next().charAt(0);
-                }
-                while (ch == 'y');
-                System.out.println("Approximate Date of sending Goods (DD/MM/YYYY) : ");
-                date = input.next();
-                System.out.println("We request you to donate the cash to the nearest hub "+office);
-                System.out.println("Enter the amount : ");
-                amount = input.nextDouble();
-                modeOfTransaction();
-                break;
+                    System.out.println("Approximate Date of sending Goods (DD/MM/YYYY) : ");
+                    date = input.next();
+                    System.out.println("We request you to donate the cash to the nearest hub "+office);
+                    System.out.println("Enter the amount : ");
+                    amount = input.nextDouble();
+                    modeOfTransaction();
+                    break;
             default:
                 System.out.println("Invalid Option >>>>>> Please Enter valid option");
                 System.exit(0);
@@ -145,7 +132,7 @@ public class Donor implements NGODetails
             {
                 Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);
                 Statement statement = conn.createStatement();
-                String sql = "Insert into DonorTable(" + donor_ID+",\" " +first_name +" ,\" "+last_name + ",\" "+age+",\" "+gender+", \" "+mobile_number+",\" "+city+", \""+item+",\""+amount+",\" "+office+")";
+                String sql = "INSERT INTO Donor_Info VALUES(\""+ donor_ID+"\",\""+first_name+"\",\""+last_name+"\",\""+age+"\",\""+gender+"\", \""+mobile_number+"\",\""+city+"\", \""+item+"\",\""+amount+"\",\""+office+"\")";
                 statement.executeUpdate(sql);
                 System.out.println("Thank You!");
             } catch (SQLException e) {

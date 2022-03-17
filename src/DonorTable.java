@@ -23,7 +23,7 @@ public class DonorTable
             DB_URL +="DONORDETAILS";
             Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);
             Statement statement = conn.createStatement();
-            String sql = "CREATE TABLE IF NOT EXISTS DonorTable(Donor_Id INTEGER ," + "First_Name VARCHAR(255), " + " Last_Nmame VARCHAR(255), " + " age INTEGER," + "Gender VARCHAR(255)," + "Phone_Number INTEGER," + "City VARCHAR(255)," + "Item VARCHAR(255)," + "Amount INTEGER," +"Send_Location VARCHAR(255))";
+            String sql = "CREATE TABLE IF NOT EXISTS Donor_Info(Donor_Id VARCHAR(50) ,First_Name VARCHAR(50),Last_Name VARCHAR(50),age INTEGER,Gender VARCHAR(50),Phone_Number VARCHAR(15),City VARCHAR(50),Item VARCHAR(50),Amount VARCHAR(50),Send_Location VARCHAR(50))";
             statement.executeUpdate(sql);
             System.out.println("Created table in given database...");
         } catch (SQLException e) {
