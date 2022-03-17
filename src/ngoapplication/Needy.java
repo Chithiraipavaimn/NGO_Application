@@ -158,7 +158,7 @@ public class Needy implements NGODetails
             String convert_reason=reason.toLowerCase();
             switch (convert_reason)
             {
-                case "education":
+                case "education" :
                     amount = 25000;
                     break;
                 case "medical" :

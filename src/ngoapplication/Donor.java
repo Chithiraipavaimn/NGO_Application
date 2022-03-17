@@ -12,9 +12,10 @@ public class Donor implements NGODetails
     String DB_URL = "jdbc:mysql://localhost/DONORDETAILS";
     final String USER = "root";
     final String PASS = "root";
-    public String first_name,last_name,city,gender,item,office,donor_ID,mobile_number;
+    public String first_name,last_name,city,gender,item,office,donor_ID;
     public double amount;
     int quantity,age;
+    String mobile_number;
     public void getPersonalDetails()
     {
         System.out.println("Enter your First Name : ");
@@ -29,13 +30,13 @@ public class Donor implements NGODetails
         String occupation=input.nextLine();
         input.nextLine();
         System.out.println("Enter Phone Number : ");
-        mobile_number=input.nextLine();
+        mobile_number=input.next();
+        input.nextLine();
         if(mobile_number.length()!=10)
         {
             System.out.println("Invalid Mobile Number....Please enter a valid mobile number");
             System.exit(0);
         }
-        input.nextLine();
         System.out.println("Enter current City : ");
         city=input.nextLine();
         System.out.println("Purpose of Donating : ");
@@ -48,7 +49,7 @@ public class Donor implements NGODetails
         int rn=r.nextInt(1000000);
         donor_ID=Integer.toString(rn);
         System.out.println("----------YOU HAVE REGISTERED SUCCESSFULLY-----------");
-        System.out.println("\t Name\t : "+first_name+" "+last_name);
+        System.out.println("\t Name\t \t\t : "+first_name+" "+last_name);
         System.out.println("\t Register Number : NGO-D"+donor_ID);
         System.out.println("-----------------------------------------------------");
     }
