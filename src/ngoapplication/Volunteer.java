@@ -1,12 +1,14 @@
 package ngoapplication;
+import com.location.Location;
+
 import java.sql.*;
 import java.util.Scanner;
 
 public class Volunteer implements NGODetails
 {
-    static final String DB_URL = "jdbc:mysql://localhost/VOLUNTEERDETAILS";
+    static final String DB_URL = "jdbc:mysql://localhost/VOLUNTERDETAILS";
     static final String USER = "root";
-    static final String PASS = "Heidi@#08zx$";
+    static final String PASS = "root";
     String first_name,last_name,city,ph_number,availability,office,gender;
     String volunteer_Id="";
     int age;
@@ -36,6 +38,7 @@ public class Volunteer implements NGODetails
         }
         System.out.println("Enter your City : ");
         city = input.nextLine();
+        office = Location.findNearestHub(city);
         System.out.println("1-->Weekdays \n2-->Weekend. \nEnter your Availability :");
         int choice = input.nextInt();
         switch (choice) {
@@ -50,6 +53,7 @@ public class Volunteer implements NGODetails
             default:
                 System.exit(0);
         }
+        System.out.println("Your Work Location is : "+office);
     }
      public void idGeneration()
     {
@@ -85,9 +89,9 @@ public class Volunteer implements NGODetails
         {
             Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);
             Statement statement = conn.createStatement();
-            String sql = "Insert into volunteertable(" + volunteer_Id+",\" " +first_name +" ,\" "+last_name + ",\" "+age+",\" "+gender+", \" "+ph_number+",\" "+city+",\" "+availability+",\" "+office+")";
+            String sql = "Insert into voluntertable values(\""+volunteer_Id+"\",\""+first_name +"\",\""+last_name +"\","+age+",\""+gender+"\",\""+ph_number+"\",\""+city+"\",\""+availability+"\",\""+office+"\")";
             statement.executeUpdate(sql);
-            System.out.println("Thank You!");
+            System.out.println("Thank You...!");
         } catch (SQLException e) {
             e.printStackTrace();
     }
