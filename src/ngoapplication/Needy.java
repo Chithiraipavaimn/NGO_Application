@@ -86,7 +86,7 @@ public class Needy implements NGODetails
                     modeOfTransaction();
                     break;
                 default:
-                    System.out.println("Invalid Option >>>>>> Please Enter valid option");
+                    System.out.println("Invalid Option >>>>>>> Please Enter valid option");
                     System.exit(0);
             }
         }
