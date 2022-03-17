@@ -9,11 +9,9 @@ public class Needy implements NGODetails
         String DB_URL = "jdbc:mysql://localhost/NEEDYDETAILS";
         final String USER = "root";
         final String PASS = "root";
-        public String first_name,last_name,city,needy_ID;
-        public double amount;
-        String item,office,mobile_number,gender,occupation,bank_Name,acc_name,ifsc,branch,upi_id;
-        int quantity,age;
-        long acc_no;
+        String first_name="",last_name="",city="",needy_ID="",amount="";
+        String item="",office="",mobile_number="",gender="",occupation="",bank_Name="",acc_name="",ifsc="",branch="",upi_id="",acc_no="";
+        int quantity=0,age=0;
         public void getPersonalDetails()
         {
             System.out.println("Enter your First Name : ");
@@ -47,9 +45,10 @@ public class Needy implements NGODetails
             Random r=new Random();
             int rn=r.nextInt(1000000);
             needy_ID=Integer.toString(rn);
+            needy_ID="NGO-N"+needy_ID;
             System.out.println("------------YOU HAVE REGISTERED SUCCESSFULLY----------");
             System.out.println("Name: "+first_name+" "+last_name);
-            System.out.println("Registration No: NGO-N"+needy_ID);
+            System.out.println("Registration No: "+needy_ID);
             System.out.println("------------------------------------------------------");
 
         }
@@ -122,7 +121,7 @@ public class Needy implements NGODetails
                     bank_Name = input.nextLine();
                     input.nextLine();
                     System.out.println("Account Number : ");
-                    acc_no = input.nextLong();
+                    acc_no = input.next();
                     System.out.println("Account Holder Name : ");
                     acc_name = input.nextLine();
                     input.nextLine();
@@ -159,16 +158,16 @@ public class Needy implements NGODetails
             switch (convert_reason)
             {
                 case "education" :
-                    amount = 25000;
+                    amount = "25000";
                     break;
                 case "medical" :
-                    amount = 30000;
+                    amount = "30000";
                     break;
                 case "women empowerment" :
-                    amount = 20000;
+                    amount = "20000";
                     break;
                 case "unemployed":
-                    amount = 10000;
+                    amount = "10000";
                     break;
                 default :
                     System.out.println("Sorry.  We Need a Valid Reason to help you. Retry with a Valid Reason.");
@@ -181,7 +180,7 @@ public class Needy implements NGODetails
             {
                 Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);
                 Statement statement = conn.createStatement();
-                String sql = "Insert into NeedyTable(" + needy_ID+",\" " +first_name +" ,\" "+last_name + ",\" "+age+",\" "+gender+", \" "+occupation+",\""+mobile_number+",\" "+city+",\" "+item+",\" "+amount+",\" "+acc_name+",\" "+acc_no+",\" "+ifsc+",\" "+branch+",\" "+bank_Name+",\" "+upi_id+",\" "+office+")";
+                String sql = "Insert into NeedyPeoples values(\""+needy_ID+"\",\""+first_name+"\",\""+last_name+"\","+age+",\""+gender+"\",\""+occupation+"\",\""+mobile_number+"\",\""+city+"\",\""+item+"\",\""+amount+"\",\""+acc_name+"\",\""+acc_no+"\",\""+ifsc+"\",\""+branch+"\",\""+bank_Name+"\",\""+upi_id+"\",\""+office+"\")";
                 statement.executeUpdate(sql);
                 System.out.println("Thank You!");
             } catch (SQLException e) {
