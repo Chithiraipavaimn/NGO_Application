@@ -9,9 +9,9 @@ public class Needy implements NGODetails
         String DB_URL = "jdbc:mysql://localhost/NEEDYDETAILS";
         final String USER = "root";
         final String PASS = "root";
-        String first_name,last_name,city,needy_ID,amount="none";
-        String item="none",office="none",mobile_number,gender,occupation,bank_Name="none",acc_name="none",ifsc="none",branch="none",upi_id="none",acc_no="none";
-        int quantity=0,age;
+        String first_name,last_name,city,needy_ID,amount;
+        String item,office,mobile_number,gender,occupation,bank_Name,acc_name,ifsc,branch,upi_id,acc_no;
+        int quantity,age;
         public void getPersonalDetails()
         {
             System.out.println("Enter your First Name : ");
@@ -26,14 +26,12 @@ public class Needy implements NGODetails
             System.out.println("Enter your Occupation : ");
             occupation=input.nextLine();
             System.out.println("Enter Phone Number : ");
-            mobile_number=input.next();
-            input.nextLine();
+            mobile_number=input.nextLine();
             if(mobile_number.length()!=10)
             {
                 System.out.println("Invalid phone number......... Enter valid phone number.");
                 System.exit(0);
             }
-            input.nextLine();
             System.out.println("Enter current City : ");
             city=input.nextLine();
             System.out.println("Marital Status : ");
@@ -62,22 +60,14 @@ public class Needy implements NGODetails
             System.out.println("Enter your choice : ");
             option = input.nextInt();
             input.nextLine();
-            String date;
-            char ch;
             switch (option)
             {
                 case 1:
-                    do
-                    {
+
                         System.out.println("Enter the Item : ");
                         item = input.nextLine();
                         System.out.println("Enter the Quantity : ");
                         quantity = input.nextInt();
-                        System.out.println("Do you want to add any other item (Y/N) :");
-                        ch = input.next().charAt(0);
-                        input.nextLine();
-                    }
-                    while (ch == 'y');
                     System.out.println("We request you to collect the goods from our nearest hub "+office);
                     break;
 
@@ -86,15 +76,10 @@ public class Needy implements NGODetails
                     modeOfTransaction();
                     break;
                 case 3:
-                    do {
                         System.out.println("Enter the Item : ");
                         item = input.nextLine();
                         System.out.println("Enter the Quantity : ");
                         quantity = input.nextInt();
-                        System.out.println("Do you want to add any other item (Y/N) :");
-                        ch = input.next().charAt(0);
-                    }
-                    while (ch == 'y');
                     System.out.println("We request you to collect the goods from our nearest hub "+office);
                     input.nextLine();
                     amountNeeded();
@@ -133,7 +118,6 @@ public class Needy implements NGODetails
                     System.out.println("****** UPI ID *******");
                     System.out.println("Enter your upi_id no : ");
                     upi_id = input.nextLine();
-                    input.nextLine();
                     break;
                 case "3":
                     System.out.println("We request you to collect the cash from our nearest hub " + office);
@@ -150,7 +134,6 @@ public class Needy implements NGODetails
             System.out.println("--------------------------------------------");
             System.out.println("Enter the Reason : ");
             String reason=input.nextLine();
-            input.nextLine();
             String convert_reason=reason.toLowerCase();
             switch (convert_reason)
             {
