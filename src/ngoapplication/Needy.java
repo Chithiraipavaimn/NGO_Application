@@ -162,7 +162,7 @@ public class Needy implements NGODetails
                 Statement statement = conn.createStatement();
                 String sql = "INSERT INTO Needy_Peoples VALUES('"+needy_ID+"','"+first_name+"','"+last_name+"',"+age+",'"+gender+"','"+occupation+"','"+mobile_number+"','"+city+"','"+item+"','"+amount+"','"+acc_name+"','"+acc_no+"','"+ifsc+"','"+branch+"','"+bank_Name+"','"+upi_id+"','"+office+"')";
                 statement.executeUpdate(sql);
-                System.out.println("Thank You!");
+                System.out.println("Thank You!!!....");
             } catch (SQLException e) {
                 e.printStackTrace();
             }
