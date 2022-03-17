@@ -81,7 +81,7 @@ public class Volunteer implements NGODetails
         System.out.println("----------YOU HAVE REGISTERED SUCCESSFULLY------------");
         System.out.println("\t Name\t : "+first_name+" "+last_name);
         System.out.println("\t Register Number : NGO-V"+volunteer_Id);
-        System.out.println("------------------------------------------------------");
+        System.out.println("-------------------------------------------------------");
     }
     public void display()
     {

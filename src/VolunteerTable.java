@@ -15,7 +15,7 @@ public class VolunteerTable
             Statement statement = conn.createStatement();
             String sql = "CREATE DATABASE VOLUNTERDETAILS";
             statement.executeUpdate(sql);
-            System.out.println("DataBase Successfully created...");
+            System.out.println("DataBase Successfully created....");
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -25,7 +25,7 @@ public class VolunteerTable
             Statement statement = conn.createStatement();
             String sql = "CREATE TABLE IF NOT EXISTS volunterTable(Volunteer_Id VARCHAR(255) ,First_name VARCHAR(255),Last_name VARCHAR(255),age INTEGER,Gender VARCHAR(255),Phone_Number VARCHAR(255),City VARCHAR(255),Availability VARCHAR(255),Work_Location VARCHAR(255))";
             statement.executeUpdate(sql);
-            System.out.println("Created table in given database...");
+            System.out.println("Created table in given database....");
         } catch (SQLException e) {
             e.printStackTrace();
         }
